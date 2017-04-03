@@ -9,7 +9,7 @@
 
 /* Basic trie node -- also, keep track of number of nodes below this one. */
 typedef struct node {
-    int num_children; // hello would have 1 for each level
+    int num_children; 
     struct node *children[ALPHABET_LENGTH]; //  the characters stored at every level
 } trie_node;
 
