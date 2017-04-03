@@ -1,3 +1,8 @@
+/*
+ * Authors: Catherine Javadian, Jennifer Cafiero, Jordana Approvato
+ * Pledge: We pledge our honor that we have abided by the Stevens Honor System
+ * HackerRank Tries: Contacts
+*/
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -13,12 +18,15 @@ typedef struct node {
     struct node *children[ALPHABET_LENGTH]; //  the characters stored at every level
 } trie_node;
 
+
 trie_node * newNode() {
+    /* The newNode function creates a new trie node and allocates enough memory for the trie*/
 	trie_node * new = (trie_node*)calloc(1, sizeof(trie_node));
 	return new;
 }
 
 trie_node * find(const char* name, trie_node * root) {
+    /* The find function takes in a string and the trie and finds the node that starting with the partial string. This function prints the number of strings starting with this partial string on a new line*/
 	int index = *name - 'a';
     if (!*name) {
         return root;
@@ -34,6 +42,7 @@ trie_node * find(const char* name, trie_node * root) {
 }
 
 void add(const char* name, trie_node * root) {
+    /*The add function takes in a string as a contact name and adds the string as a new contact in the trie */
     root->num_children++;
     if (!*name) {
         return;
@@ -51,7 +60,7 @@ void add(const char* name, trie_node * root) {
     add(name, ch);
 }
 
-//This is needed to run printf() function.
+
 int main() {
 	int lines;
 	scanf("%i", &lines);
